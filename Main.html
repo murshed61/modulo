@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modulo Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 15px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Modulo Calculator</h2>
+        <input type="number" id="numberInput" placeholder="Enter a number">
+        <input type="number" id="moduloInput" placeholder="Enter modulo value">
+        <button onclick="calculateModulo()">Calculate</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function calculateModulo() {
+            const number = parseInt(document.getElementById('numberInput').value);
+            const modulo = 13;
+
+            if (isNaN(number) || isNaN(modulo) || modulo === 0) {
+                document.getElementById('result').innerText = 'Please enter valid inputs (modulo cannot be zero).';
+                return;
+            }
+
+            const result = (number% modulo)+1;
+            document.getElementById('result').innerText = `Result: (${number} + 1) % ${modulo} = ${result}`;
+        }
+    </script>
+</body>
+</html>
