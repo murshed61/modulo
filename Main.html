@@ -23,7 +23,7 @@
             width: 300px;
         }
         input {
-            width: 80%;
+            width: 100%;
             padding: 10px;
             margin: 10px 0;
             border: 1px solid #ccc;
@@ -37,6 +37,7 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
+            width: 100%;
         }
         button:hover {
             background-color: #45a049;
@@ -52,7 +53,6 @@
     <div class="container">
         <h2>Modulo Calculator</h2>
         <input type="number" id="numberInput" placeholder="Enter a number">
-        <input type="number" id="moduloInput" placeholder="Enter modulo value">
         <button onclick="calculateModulo()">Calculate</button>
         <div class="result" id="result"></div>
     </div>
@@ -62,13 +62,13 @@
             const number = parseInt(document.getElementById('numberInput').value);
             const modulo = 13;
 
-            if (isNaN(number) || isNaN(modulo) || modulo === 0) {
-                document.getElementById('result').innerText = 'Please enter valid inputs (modulo cannot be zero).';
+            if (isNaN(number)) {
+                document.getElementById('result').innerText = 'Please enter a valid number.';
                 return;
             }
 
-            const result = (number% modulo)+1;
-            document.getElementById('result').innerText = `Result: (${number} + 1) % ${modulo} = ${result}`;
+            const result = (number % modulo) + 1;
+            document.getElementById('result').innerText = `Result: (${number} % ${modulo}) + 1 = ${result}`;
         }
     </script>
 </body>
